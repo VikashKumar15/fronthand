@@ -1,0 +1,129 @@
+<div *ngIf="home" class="display">
+    <div *ngFor="let coach of coachArray" class="card3-coach-home data-coach-home">
+        <table>
+        <tr>
+        <td>
+        <img *ngIf="coach.Gender=='M'" src="../assets/Images/male.png"/>
+        <img *ngIf="coach.Gender=='F'" src="../assets/Images/female.png"/>
+        </td>
+        <td>
+        <h1>{{coach.Name}}</h1>
+        <h3>Coach Id: {{coach.CoachId}}</h3>
+        <div >Mobile No: {{coach.MobileNumber}}<br/><br/>
+        Speciality: {{coach.Speciality}}<br/><br/>
+        </div>
+        <button (click)="addbooking(coach.CoachId)" >Book an Appointment</button>
+        </td>
+        </tr>
+        </table>
+    </div>
+</div>
+<div *ngIf="profile" class="display">
+    <div class="card3-coach-home data-coach-home" >
+        <table>
+            <tr>
+                <td>
+                    <img *ngIf="userDetails.Gender=='M'" src="../assets/Images/male.png"/>
+                    <img *ngIf="userDetails.Gender=='F'" src="../assets/Images/female.png"/>
+                </td>
+                <td>
+       <h1>{{userDetails.Name}}</h1>
+       <div>
+       Date Of Birth: {{userDetails.DateOfBirth.substring(0,10)}}<br/>
+       Email: {{userDetails.Email}}<br/>
+       Mobile No: {{userDetails.MobileNumber}}<br/>
+       Address: {{userDetails.City}}, {{userDetails.State}}, {{userDetails.Country}}<br/>
+       PinCode: {{userDetails.PinCode}}<br/>
+       </div> <br/>
+       <button (click)="tohome()">Go Back</button>
+       </td>
+       </tr>
+       </table>
+       </div>
+</div>
+<div *ngIf="schedules&&!noschedules" >
+    <div class="display">
+    <div *ngFor="let sch of appointmentDetails"class="card1-coach-home data-coach-home">
+        <div >
+            Appointment Date:<br/>
+        {{sch.AppointmentDate.substring(0,10)}}<br/>
+        Slot : {{sch.Slot}}<br/>
+        </div>
+        Booking Id : {{sch.BookingId}}<br/>
+        User id : {{sch.UserId}}<br/>
+        Coach id : {{sch.CoachId}}<br/><br/>
+        <button (click)="reschedule(sch.BookingId)">Reshedule Appointment</button><br/><br/>
+        <button (click)="cancel(sch.BookingId)">Cancel Appointment</button>
+        </div>
+    </div>
+        <center><button style="color:white" (click)="tohome()">Go Back</button></center>
+</div>
+<div *ngIf="schedules&&noschedules" style="margin-left:40%;">
+
+    <img  src="../assets/Images/Notepad_icon.svg.png"/><br/><br/>
+    <h1>No Planned</h1>
+    <h1>Schedules yet</h1>
+</div>
+<div *ngIf="newbooking">
+    <div class="card-coach-signup">
+        <h2 [style.color]="'white'">Proceed with your Appointment</h2>
+        <br/>
+        <form [formGroup]="appointmentForm" class="form-coach-signup" (ngSubmit)="confirmAppointment()" >
+            <label   for="dt">Date of Appointment</label><br/><input type="date" [style.color]="'black'" formControlName="DateOfAppointment"  required/>
+            <p class="myerror-coach-signup"*ngIf="appointmentForm.controls.DateOfAppointment.dirty&&appointmentForm.controls.DateOfAppointment.errors?.dateInValid">{{appointmentForm.controls.DateOfAppointment.errors?.dateInValid.message}}</p>
+            <br/>
+            <label  >Preferred Slot</label><br/>
+            <input type="radio"   value="9 AM to 10 AM" formControlName="Slot"  />    
+            <label >9 AM to 10 AM</label>&nbsp;
+            <input type="radio"   value="10 AM to 11 AM" formControlName="Slot"  />
+            <label >10 AM to 11 AM</label>&nbsp;
+            <input type="radio"   value="11 AM to 12 PM" formControlName="Slot"  />
+            <label >11 AM to 12 PM</label>&nbsp;
+            <input type="radio"   value="2 PM to 3 PM" formControlName="Slot"  />
+            <label >2 PM to 3 PM</label>&nbsp;<br/>
+            <input type="radio"   value="3 PM to 4 PM" formControlName="Slot"  />
+            <label >3 PM to 4 PM</label>&nbsp;
+            <input type="radio"  value="4 PM to 5 PM" formControlName="Slot"  />
+            <label >4 PM to 5 PM</label>
+            <br/><br/>
+            <button type="submit"   disabled={{appointmentForm.controls.DateOfAppointment.errors||appointmentForm.controls.Slot.errors}}>Confirm your Appointment</button>
+        </form>
+        </div> 
+</div>
+<div  *ngIf="bookingsuccess" class="card-coach-signup pad" [style.color]="'white'">
+    <br/>Your appointment is scheduled Successfully<br/><br/>
+    <button  (click)="goback1()" >Go back</button>
+</div>
+<div *ngIf="reschedulebooking">
+    <div class="card-coach-signup">
+        <h2 [style.color]="'white'">Reschedule your Appointment</h2>
+        <form [formGroup]="rescheduleForm" class="form-coach-signup" (ngSubmit)="rescheduleAppointment()" >
+            <label   for="dt">Date of Appointment</label><br/><input type="date" [style.color]="'black'" formControlName="DateOfAppointment"  required/>
+            <p class="myerror-coach-signup" *ngIf="rescheduleForm.controls.DateOfAppointment.dirty&&rescheduleForm.controls.DateOfAppointment.errors?.dateInValid">{{appointmentForm.controls.DateOfAppointment.errors?.dateInValid.message}}</p>
+            <br/>
+            <label  >Preferred Slot</label><br/>
+            <input type="radio"   value="9 AM to 10 AM" formControlName="Slot"  />    
+            <label >9 AM to 10 AM</label>&nbsp;
+            <input type="radio"   value="10 AM to 11 AM" formControlName="Slot"  />
+            <label >10 AM to 11 AM</label>&nbsp;
+            <input type="radio"   value="11 AM to 12 PM" formControlName="Slot"  />
+            <label >11 AM to 12 PM</label>&nbsp;
+            <input type="radio"   value="2 PM to 3 PM" formControlName="Slot"  />
+            <label >2 PM to 3 PM</label>&nbsp;<br/>
+            <input type="radio"   value="3 PM to 4 PM" formControlName="Slot"  />
+            <label >3 PM to 4 PM</label>&nbsp;
+            <input type="radio"  value="4 PM to 5 PM" formControlName="Slot"  />
+            <label >4 PM to 5 PM</label>
+            <br/><br/>
+            <button type="submit"  disabled={{rescheduleForm.controls.DateOfAppointment.errors||rescheduleForm.controls.Slot.errors}}>Reschedule your Appointment</button>
+        </form>
+        </div> 
+</div>
+<div  *ngIf="bookingreschedule" class="card-coach-signup pad" [style.color]="'white'">
+    <br/>Your appointment is rescheduled Successfully<br/><br/>
+    <button (click)="goback2()"  >Go back</button>
+</div>
+<div *ngIf="deletesuccess" class="card-coach-signup pad" [style.color]="'white'">
+    <br/>Your appointment is cancelled Successfully<br/><br/>
+    <button (click)="goback3()" >Go back</button>
+</div>

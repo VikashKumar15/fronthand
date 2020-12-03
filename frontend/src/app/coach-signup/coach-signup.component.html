@@ -1,0 +1,51 @@
+
+<div *ngIf="formDisplay" class="card-coach-signup">
+    <h1 style="color:white;"><center>Life Coach Profile</center></h1>
+    <form class="form-coach-signup" [formGroup]="registerForm" (ngSubmit)="submit()" >
+        
+        <table>
+         <tr> 
+         <td> 
+        <label for="coachname">Name</label><br/><input type="text" [style.color]="'black'" formControlName="name"  required/>
+        <p class="myerror-coach-signup"*ngIf="registerForm.controls.name.dirty&&registerForm.controls.name.errors?.nameInValid">{{registerForm.controls.name.errors?.nameInValid.message}}</p>
+        </td>   
+        <td> 
+        <label for="pwd">Password</label><br/><input type="password" [style.color]="'black'" formControlName="password"  required/>
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.password.dirty&&registerForm.controls.password.errors?.passwordInValid">{{registerForm.controls.password.errors?.passwordInValid.message}}</p>
+        </td>
+        </tr>  
+        <tr> 
+         <td> 
+        <label for="dt">Date Of Birth</label><br/><input type="date" [style.color]="'black'" formControlName="dateOfBirth"  required/>
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.dateOfBirth.dirty&&registerForm.controls.dateOfBirth.errors?.dobInValid">{{registerForm.controls.dateOfBirth.errors?.dobInValid.message}}</p>
+        </td>   
+        <td> 
+        <label for="pwd">Gender</label><br/>   
+        <input type="radio" formControlName="gender" id="male" value="M" required />    
+        <label for="male">Male</label><input type="radio" formControlName="gender" id="female" value="F" required />
+        <label for="female">Female</label>
+        </td>
+        </tr> 
+        <tr> 
+         <td> 
+        <label for="coachname">Mobile Number</label><br/><input type="text" [style.color]="'black'"formControlName="mobileNumber"  required/>
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.mobileNumber.dirty&&registerForm.controls.mobileNumber.errors?.mobileInValid">{{registerForm.controls.mobileNumber.errors?.mobileInValid.message}}</p>
+        </td>   
+        <td> 
+        <label for="">Speciality</label><br/><input type="text" [style.color]="'black'" formControlName="speciality"  required/>
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.speciality.dirty&&registerForm.controls.speciality.errors?.specialityInValid">{{registerForm.controls.speciality.errors?.specialityInValid.message}}</p>
+        </td>
+        </tr> 
+        </table>
+        <br/>
+        <center><button type="submit"class="mybtn-coach-signup" disabled={{registerForm.controls.name.errors||registerForm.controls.password.errors||registerForm.controls.dateOfBirth.errors||registerForm.controls.mobileNumber.errors||registerForm.controls.speciality.errors}}>Register</button></center>
+    </form>
+    </div>
+    <div *ngIf="!formDisplay"  style="align-content:center">
+        <center>
+        <img class="img-home" src="../assets/Images/Life Coach LogIn.jpg"/><br/>
+        <h1>You are a Coach now!</h1>
+        <h2>Your Coach Id is {{coachId}}</h2>
+        <button (click)="logincoach()">Login Now</button>
+    </center>
+    </div>

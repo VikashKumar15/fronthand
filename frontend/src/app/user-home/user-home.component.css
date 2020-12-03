@@ -1,0 +1,137 @@
+.card1-coach-home{
+    background-color: rgb(5, 5, 5);
+    border-radius: 10px;
+    font-size: 14px;
+    padding:15px;
+    width:22%;
+    margin: 6px;
+    margin-top:95px;
+}
+.display{
+    display:flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.card3-coach-home{
+    background-color: rgb(5, 5, 5);
+    border-radius: 10px;
+    font-size: 14px;
+    padding:15px;
+    width:30%;
+    margin: 8px;
+    margin-top:95px;
+}
+
+.cardImage-coach-home{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.data1-coach-home{
+    font-size:13px;
+}
+
+.data-coach-home{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    padding-left: 60px;
+}
+
+
+.myImage-coach-home{
+    height: 100px;
+    width:100px;
+}
+
+.card-coach-signup{
+    margin-top:55px;
+    padding:20px;
+    background-color: rgba(5, 5, 5, 1);
+    border-radius: 10px;
+    width:40%;
+    margin: auto;
+}
+
+.form-coach-signup{
+    color:white;
+    margin: auto;
+}
+
+.myerror1-coach-signup{
+    font-family: 'Montserrat', sans-serif;;
+    color: red;
+    font-size:14px;
+}
+
+.mybtn-coach-signup{
+    /* background-color: rgb(129, 122, 122); */
+    /* color: white; */
+    font-family: 'Montserrat', sans-serif;;
+    font-weight: 400;
+    width:20%;
+    font-size: 18px;
+}
+
+.labels{
+    position:relative;
+    right:190px;
+    margin-bottom:100px;
+    font-size: 20px;
+}
+.labela{
+    position:relative;
+    right:160px;
+    margin-bottom:100px;
+    font-size: 20px;
+}
+/* .mybtn:hover{
+    background-color: rgb(54, 54, 54);
+}
+
+.mybtn:disabled:hover{
+    background-color: rgb(129, 122, 122);
+} */
+
+
+img{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-right:20px;
+}
+
+
+.myerror-coach-signup{
+    font-family: 'Montserrat', sans-serif;;
+    color: red;
+    font-size:12px;
+}
+
+.span-coach-signup{
+    color: white;
+    font-family: 'Montserrat', sans-serif;;
+    font-size: 30px;
+}
+
+/* @font-face{
+    font-family: myFont;
+    src:url(../../assets/Fonts/Oswald-Regular.ttf);
+} */
+
+button{
+    background-color: blue;
+    border:none;
+    padding:5px;
+    border-radius:6px ;
+}
+input{
+    padding:6px 100px 6px 15px;
+    margin-bottom:10px;
+    border-radius:7px;
+  }
+  .pad{
+    margin-top:100px;
+}

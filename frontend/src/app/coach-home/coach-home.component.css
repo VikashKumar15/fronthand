@@ -1,0 +1,53 @@
+.card1-coach-home{
+    background-color: rgb(5, 5, 5);
+    border-radius: 10px;
+    font-size: 14px;
+    padding:30px;
+    width:30%;
+    margin: 3px;
+    margin-top:95px;
+}
+.display{
+    display:flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.card3-coach-home{
+    background-color: rgb(5, 5, 5);
+    border-radius: 10px;
+    font-size: 14px;
+    padding:25px;
+    width:20%;
+    margin: 8px;
+    margin-top:95px;
+}
+
+.cardImage-coach-home{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.data1-coach-home{
+    font-size:13px;
+}
+
+.data-coach-home{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    padding-left: 60px;
+}
+
+
+.myImage-coach-home{
+    height: 100px;
+    width:100px;
+}
+img{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-right:20px;
+}

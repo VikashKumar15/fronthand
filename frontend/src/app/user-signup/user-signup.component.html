@@ -1,0 +1,71 @@
+
+<div *ngIf="formDisplay" class="card-coach-signup">
+    <center><h1 style="color:white;">User Profile</h1></center>
+    <form class="form-coach-signup" [formGroup]="registerForm" (ngSubmit)="submit()" >
+        
+        <table>
+         <tr> 
+         <td> 
+        <label for="coachname">Name</label><br/><input type="text" [style.color]="'black'" formControlName="name"  />
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.name.dirty&&registerForm.controls.name.errors?.nameInValid">{{registerForm.controls.name.errors?.nameInValid.message}}</p>
+        </td>   
+        <td> 
+        <label for="pwd">Password</label><br/><input type="password" [style.color]="'black'" formControlName="password"  />
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.password.dirty&&registerForm.controls.password.errors?.passwordInValid">{{registerForm.controls.password.errors?.passwordInValid.message}}</p>
+        </td>
+        </tr>
+        <tr> 
+            <td> 
+           <label for="coachname">Mobile Number</label><br/><input type="text" [style.color]="'black'"formControlName="mobileNumber"  />
+           <p class="myerror-coach-signup" *ngIf="registerForm.controls.mobileNumber.dirty&&registerForm.controls.mobileNumber.errors?.mobileInValid">{{registerForm.controls.mobileNumber.errors?.mobileInValid.message}}</p>
+           </td>   
+           <td> 
+           <label for="">Email</label><br/><input type="text" [style.color]="'black'" formControlName="email"  />
+           <p class="myerror-coach-signup" *ngIf="registerForm.controls.email.dirty&&registerForm.controls.email.errors">This field is required </p>
+           </td>
+           </tr>  
+        <tr> 
+         <td> 
+        <label for="dt">Date Of Birth</label><br/><input type="date" [style.color]="'black'" formControlName="dateOfBirth"  />
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.dateOfBirth.dirty&&registerForm.controls.dateOfBirth.errors?.dobInValid">{{registerForm.controls.dateOfBirth.errors?.dobInValid.message}}</p>
+        </td>   
+        <td> 
+        <label for="pwd">Gender</label><br/>   
+        <input type="radio" formControlName="gender" id="male" value="M"  />    
+        <label for="male">Male</label><input type="radio" formControlName="gender" id="female" value="F"  />
+        <label for="female">Female</label>
+        </td>
+        </tr> 
+        <tr> 
+         <td> 
+        <label for="coachname">Pincode</label><br/><input type="text" [style.color]="'black'"formControlName="pincode"  />
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.pincode.dirty&&registerForm.controls.pincode.errors?.pinInValid">{{registerForm.controls.pincode.errors?.pinInValid.message}}</p>
+        </td>   
+        <td> 
+        <label for="">City</label><br/><input type="text" [style.color]="'black'" formControlName="city"  />
+        <p class="myerror-coach-signup" *ngIf="registerForm.controls.city.dirty&&registerForm.controls.city.errors?.cityInValid">{{registerForm.controls.city.errors?.cityInValid.message}}</p>
+        </td>
+        </tr> 
+        <tr> 
+            <td> 
+           <label for="coachname">State</label><br/><input type="text" [style.color]="'black'"formControlName="state"  />
+           <p class="myerror-coach-signup" *ngIf="registerForm.controls.state.dirty&&registerForm.controls.state.errors?.stateInValid">{{registerForm.controls.state.errors?.stateInValid.message}}</p>
+           </td>   
+           <td> 
+           <label for="">Country</label><br/><input type="text" [style.color]="'black'" formControlName="country"  />
+           <p class="myerror-coach-signup" *ngIf="registerForm.controls.country.dirty&&registerForm.controls.country.errors?.countryInValid">{{registerForm.controls.country.errors?.countryInValid.message}}</p>
+           </td>
+           </tr>
+        </table>
+        <br/>
+        <center><button type="submit"class="mybtn-coach-signup" disabled={{registerForm.controls.name.errors||registerForm.controls.password.errors||registerForm.controls.mobileNumber.errors||registerForm.controls.email.errors||registerForm.controls.dateOfBirth.errors||registerForm.controls.pincode.errors||registerForm.controls.city.errors||registerForm.controls.state.errors||registerForm.controls.country.errors}}>Register</button></center>
+    </form>
+    </div>
+    <div *ngIf="!formDisplay"  style="align-content:center">
+        <center>
+        <img src="../assets/Images/User LogIn.jpg"/><br/><br/>
+        <h1>Account created successfully</h1>
+        <h2>Your User Id is {{coachId}}</h2>
+        <button (click)="loginuser()">Login Now</button>
+       </center>
+    </div>

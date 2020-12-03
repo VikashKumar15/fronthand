@@ -1,0 +1,47 @@
+<div *ngIf="show">
+    <div class="display">
+    <div *ngFor="let schedule of scheduleDetails"class="card3-coach-home data-coach-home" >
+    <div >
+    Appointment Date:<br/>
+    {{schedule.AppointmentDate.substring(0,10)}}<br/>
+    Slot : {{schedule.Slot}}<br/><br/>
+    </div>
+    <div >
+    Booking Id : {{schedule.BookingId}}<br/>
+    User id : {{schedule.UserId}}
+    </div>
+    </div>
+</div>
+</div>
+<div *ngIf="!show">
+    <div class="display">
+        <div class="card1-coach-home data-coach-home" >
+           <table>
+           <tr>
+           <td>
+            <img *ngIf="coachDetails.Gender=='M'" src="../assets/Images/male.png"/>
+            <img *ngIf="coachDetails.Gender=='F'" src="../assets/Images/female.png"/>
+           </td>
+           <td>
+            <h1>{{coachDetails.Name}}</h1>
+           <div >
+           Coach Id:
+           {{coachId}}<br/>
+           </div><br/>    
+           <div >
+           Date of Birth: {{coachDetails.DateOfBirth.substring(0,10)}}<br/>
+           Mobile No: {{coachDetails.MobileNumber}}<br/>
+           speciality: {{coachDetails.Speciality}}
+           </div>
+           </td>
+           </tr>
+           </table>
+           </div>
+   </div>
+</div>
+<div *ngIf="show&&noschedules" style="margin-left:40%;">
+
+    <img  src="../assets/Images/Notepad_icon.svg.png"/><br/><br/>
+    <h1>Could not find </h1>
+    <h1>any bookings</h1>
+</div>

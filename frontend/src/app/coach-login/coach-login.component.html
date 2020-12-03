@@ -1,0 +1,12 @@
+<div class="card-coach-login">
+    <h1 [style.color]="'white'">Login As Life Coach </h1>
+    <form class="form-coach-login" [formGroup]='loginForm' (ngSubmit)="submit()">
+        <input type="text" formControlName="id" [style.color]="'black'" placeholder="Coach Id"  /><br/>
+        <p class="myerror-coach-login" *ngIf="loginForm.controls.id.dirty&&loginForm.controls.id.errors?.idInValid">{{loginForm.controls.id.errors?.idInValid.message}}</p>
+        <input type="password" formControlName="password"  [style.color]="'black'" placeholder="Password" /><br/>
+        <p class="myerror-coach-login" *ngIf="loginForm.controls.password.dirty&&loginForm.controls.password.errors?.passwordInValid">{{loginForm.controls.password.errors?.passwordInValid.message}}</p>
+        <br/>
+        <button disabled={{loginForm.controls.id.errors||loginForm.controls.password.errors}}>Login</button><br/><br/>
+        <p class="myerror-coach-login" *ngIf="errorMsg">{{errorMsg}}</p>
+    </form>
+</div>

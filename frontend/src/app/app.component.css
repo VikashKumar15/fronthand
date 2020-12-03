@@ -1,0 +1,16 @@
+.content{
+    height: 100%;
+}
+.navbar1{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 30px;
+  }
+  .navitem{
+    display:flex;
+    flex-direction: row-reverse;
+  }
+  .mar{
+    margin-right:20px;
+    margin-top:15px;
+  }

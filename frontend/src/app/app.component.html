@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<nav class="navbar1">
+  <a class="navbar-brand logo" href="#">WeCare</a>
+  <div class="navitem">
+    <a class="nav-link mylink mar" [routerLink]="['/home']" *ngIf="cProfile||uProfile"><i class="fa fa-sign-out" (click)="logoutFn()"></i>&nbsp;Logout</a>
+    <a class="nav-link mylink disable mar" [routerLink]="['/home']"><i class="fa fa-phone"></i>&nbsp;Call Us : 080 2233447</a>
+    <a class="nav-link mylink disable mar" [routerLink]="['/coachschedules']" *ngIf="cProfile"><i class="fa fa-list"></i>&nbsp;My Schedules</a>
+    <a class="nav-link mylink disable mar" [routerLink]="['/coachviewprofile']" *ngIf="cProfile"><i class="fa fa-user"></i>&nbsp;View Profile</a>
+    <a class="nav-link mylink disable mar" [routerLink]="['/userappointments']" *ngIf="uProfile"><i class="fa fa-list"></i>&nbsp;My Appointments</a>
+    <a class="nav-link mylink disable mar" [routerLink]="['/userviewprofile']" *ngIf="uProfile"><i class="fa fa-user"></i>&nbsp;View Profile</a>
+     </div>  
+</nav>
+<div class="container-fluid content">
+  <router-outlet></router-outlet>
+</div>
+<!-- <footer class="mt-auto">
+  Copyright &copy; 2020, WeCare. All rights reserved
+</footer> -->
